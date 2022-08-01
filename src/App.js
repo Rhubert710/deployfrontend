@@ -1,14 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
+
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HomePage from "./Pages/HomePage";
 import PostUser from "./Pages/PostUser";
 import NavBar from "./Components/NavBar";
+import UserList from "./Pages/UserList";
+import Dog from "./Pages/Dog";
 
 
-const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
-
+const urlEndpoint = "https://deploybackend-robert-hubert.herokuapp.com";
 function App() {
   const [clientMessage, setClientMessage] = useState("");
   const [serverMessage, setServerMessage] = useState("");
@@ -70,7 +72,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Routes>
+
           <Route path="/" element={<NavBar />}>
+
             <Route
               index
               element={
@@ -85,6 +89,7 @@ function App() {
                 />
               }
             />
+
             <Route
               path="/post-user"
               element={
@@ -94,6 +99,26 @@ function App() {
                 />
               }
             />
+
+            <Route
+              path="user-list"
+              element={
+                <UserList
+                  userList={userList}
+                />
+              }
+            />
+
+            <Route
+              path="dogs"
+              element={
+                <Dog
+                getdogImage={getdogImage}
+                dogImage={dogImage}
+                />
+              }
+            />
+
           </Route>
         </Routes>
       </header>

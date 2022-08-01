@@ -64,7 +64,7 @@ const PostUser = ({ postUserData, setPostUser }) => {
             setMssg(message);
             setPostUser(false);
             if (success === true) {
-              navigate("/");
+              navigate("/user-list");
             }
           }
         }}
